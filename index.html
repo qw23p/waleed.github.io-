@@ -1,19 +1,385 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Page Tit</title>
-</head>
-    <body>
-        <p>Default code has been loaded into the Editor.</p>
-    </body>
-</html>
-<!DOCTYPE html>
-<html>
-<head>
-<title>Page Title</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exact Landing Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(120deg, #1623a6, #0c124f);
+      color: white;
+      padding-top: 100px;
+    }
+
+    header.navbar {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      padding: 20px 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgb(255, 255, 255);
+      z-index: 10;
+    }
+
+    .logo img {
+      height: 50px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #0d1b4c;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: #2ec3ff;
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .actions .search {
+      font-size: 18px;
+      color: #0d1b4c;
+      cursor: pointer;
+    }
+
+    .actions .lang {
+      background-color: #f3f3f3;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 20px;
+      font-weight: bold;
+      color: #0d1b4c;
+      cursor: pointer;
+    }
+
+    .main-section {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 10%;
+      height: calc(100vh - 100px);
+    }
+
+    .lines {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100vh;
+      width: auto;
+      pointer-events: none;
+    }
+
+    .content {
+      max-width: 650px;
+      z-index: 2;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      line-height: 1.3;
+    }
+
+    h1 span {
+      color: #2ec3ff;
+    }
+
+    p {
+      margin-top: 20px;
+      font-size: 1rem;
+      line-height: 1.6;
+      max-width: 500px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 12px 30px;
+      color: #2ec3ff;
+      border: 2px solid #2ec3ff;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .globe {
+      width: 700px;
+      z-index: 1;
+    }
+
+    /* Trending Section */
+    .trending-section {
+      display: flex;
+      background-color: #f8f9fa;
+    }
+
+    .trending-sidebar {
+      width: 15%;
+      text-align: center;
+      font-weight: 800;
+      color: #007bff;
+      padding-top: 25px;
+      border-right: 1px solid #ddd;
+    }
+
+    .trending-sidebar h3 {
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .trending-content {
+      width: 85%;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      background-color: #f8f9fa;
+      padding: 30px 40px;
+    }
+
+    .trending-content .item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #000;
+    }
+
+    .numbered-dot {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: #007bff;
+      color: white;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+    }
+
+    .trending-content p {
+      font-size: 11px;
+      line-height: 1.4;
+      color: #333;
+      max-width: 160px;
+    }
+
+    .trending-content .divider {
+      height: 30px;
+      width: 1px;
+      background-color: #999;
+    }
+
+    /* Why Maiyar Section */
+    .why-maiyar {
+      background-color: #fff;
+      padding: 80px 10% 100px;
+      text-align: center;
+    }
+
+    .why-title {
+      font-size: 26px;
+      font-weight: 800;
+      margin-bottom: 60px;
+      color: #1a1a1a;
+    }
+
+    .why-title span {
+      color: #007bff;
+    }
+
+    .why-features {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .why-box {
+      flex: 1;
+      min-width: 250px;
+      max-width: 330px;
+    }
+
+    .why-box img {
+      height: 45px;
+      margin-bottom: 20px;
+    }
+
+    .why-box h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #0d1b4c;
+      margin-bottom: 10px;
+    }
+
+    .why-box p {
+      font-size: 0.95rem;
+      color: #444;
+      margin-bottom: 10px;
+    }
+
+    .why-box hr {
+      border: none;
+      height: 2px;
+      background-color: #007bff;
+      width: 100px;
+      margin: auto;
+    }
+
+    @media (max-width: 900px) {
+      .main-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 5%;
+      }
+
+      .globe {
+        width: 300px;
+        margin-top: 40px;
+      }
+
+      .trending-section {
+        flex-direction: column;
+      }
+
+      .trending-sidebar, .trending-content {
+        width: 100%;
+      }
+
+      .trending-content {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .trending-content .divider {
+        display: none;
+      }
+
+      .why-features {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .why-box hr {
+        margin-top: 10px;
+        margin-bottom: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
-<h2>Hello World</h2>
+
+  <!-- Header/Navbar -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="images/logo.png" alt="Maiyar Logo">
+    </div>
+    <nav class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">About Us</a>
+      <a href="#">Our Services</a>
+      <a href="#">Insights</a>
+      <a href="#">Contact Us</a>
+    </nav>
+    <div class="actions">
+      <span class="search">&#128269;</span>
+      <button class="lang">العربية</button>
+    </div>
+  </header>
+
+  <!-- Side Lines -->
+  <img src="images/Side lines.png" alt="Background Lines" class="lines">
+
+  <!-- Main Section -->
+  <div class="main-section">
+    <div class="content">
+      <h1>
+        EMPOWERING <span>SMARTER</span><br>
+        <span>DECISIONS</span> IN A COMPLEX<br>
+        MEDIA LANDSCAPE
+      </h1>
+      <p>
+        Maiyar delivers advanced media intelligence, crisis management, 
+        & strategic advisory services to support public and private sector 
+        decision-makers.
+      </p>
+      <a href="#" class="btn">Explore Our Solutions</a>
+    </div>
+    <img src="images/Graphic.png" alt="3D Globe" class="globe">
+  </div>
+
+  <!-- Trending Insights -->
+  <section class="trending-section">
+    <div class="trending-sidebar">
+      <h3>Trending<br>Insights</h3>
+    </div>
+    <div class="trending-content">
+      <div class="item">
+        <div class="numbered-dot">1</div>
+        <p>Managing Reputation in the Digital Age</p>
+      </div>
+      <div class="divider"></div>
+      <div class="item">
+        <div class="numbered-dot">2</div>
+        <p>How Governments Shape Strategic Narratives</p>
+      </div>
+      <div class="divider"></div>
+      <div class="item">
+        <div class="numbered-dot">3</div>
+        <p>The Role of AI in Public Sentiment Analysis</p>
+      </div>
+      <div class="divider"></div>
+      <div class="item">
+        <div class="numbered-dot">4</div>
+        <p>Reputation Management in Media Crises</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Maiyar Section -->
+  <section class="why-maiyar">
+    <h2 class="why-title">Why Leaders Trust <span>Maiyar</span></h2>
+    <div class="why-features">
+      <div class="why-box">
+        <img src="images/icon-1.png" alt="Icon 1">
+        <h4>Expertise that matters</h4>
+        <p>Deep understanding of local media dynamics backed by global standards.</p>
+        <hr>
+      </div>
+      <div class="why-box">
+        <img src="images/icon-2.png" alt="Icon 2">
+        <h4>Insight that drives impact</h4>
+        <p>Actionable intelligence tailored to your media, perception, and strategy challenges.</p>
+        <hr style="background-color: #00c69c;">
+      </div>
+      <div class="why-box">
+        <img src="images/icon-3.png" alt="Icon 3">
+        <h4>Partnership that grows with you</h4>
+        <p>We don’t just deliver results – we build long-term relationships that scale with your goals.</p>
+        <hr style="background-color: #339dff;">
+      </div>
+    </div>
+  </section>
+
 </body>
 </html>
-
